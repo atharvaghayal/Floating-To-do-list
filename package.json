@@ -1,0 +1,49 @@
+{
+  "name": "floating-todo-app",
+  "version": "1.0.0",
+  "description": "Lightweight cross-platform floating To-Do List application",
+  "author": "Your Name",
+  "license": "MIT",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win --x64"
+  },
+  "keywords": [
+    "electron",
+    "angularjs",
+    "todo",
+    "floating",
+    "always-on-top"
+  ],
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.floatingtodo.app",
+    "productName": "FloatingTodo",
+    "copyright": "Copyright © 2024",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "renderer/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "requestedExecutionLevel": "asInvoker"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "shortcutName": "Floating Todo"
+    }
+  }
+}

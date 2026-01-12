@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="todoApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Floating Todo</title>
+    <link rel="stylesheet" href="styles/app.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="TodoController">
+
+    <div class="app-container">
+        <header class="drag-region">
+            <span>Sticky Tasks</span>
+            <button class="close-btn" ng-click="closeApp()">×</button>
+        </header>
+
+        <main>
+            <form ng-submit="addTask()">
+                <input type="text" ng-model="newTaskText" placeholder="Add a task..." autofocus>
+            </form>
+
+            <ul class="todo-list">
+                <li ng-repeat="task in tasks track by $index" ng-class="{'completed': task.done}">
+                    <div class="task-row">
+                        <input type="checkbox" ng-model="task.done" ng-change="saveTasks()">
+                        <span class="task-text">{{task.text}}</span>
+                        <button class="delete-btn" ng-click="deleteTask($index)">delete</button>
+                    </div>
+                </li>
+            </ul>
+        </main>
+    </div>
+
+    <script src="scripts/app.js"></script>
+</body>
+</html>

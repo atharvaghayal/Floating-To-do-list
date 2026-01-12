@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: transparent;
+    overflow: hidden;
+}
+
+.app-container {
+    background: rgba(30, 30, 30, 0.85); /* Semi-transparent */
+    backdrop-filter: blur(10px);        /* Blur effect */
+    color: white;
+    height: 100vh;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+}
+
+.drag-region {
+    -webkit-app-region: drag; /* Makes the header draggable */
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.close-btn {
+    -webkit-app-region: no-drag; /* Buttons must be non-draggable to work */
+    background: none;
+    border: none;
+    color: #ff5f56;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+main {
+    padding: 15px;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+input[type="text"] {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    color: white;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+.todo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.task-row {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.task-text {
+    flex-grow: 1;
+    margin-left: 10px;
+    font-size: 14px;
+}
+
+.completed .task-text {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: #ff5f56;
+    font-size: 10px;
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.delete-btn:hover { opacity: 1; }
